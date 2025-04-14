@@ -53,3 +53,8 @@
 - `transform.js`: 处理 Alfred 输出格式
 - `run-node`: 运行 Node.js 脚本的辅助脚本
 
+## FAQ
+
+1. No endpoints found matching your data policy. Enable prompt training here: https://openrouter.ai/settings/privacy
+
+- 打开 [https://openrouter.ai/settings/privacy](https://openrouter.ai/settings/privacy) ，并勾选「Model Training」

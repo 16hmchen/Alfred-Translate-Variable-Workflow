@@ -1,4 +1,5 @@
 import {transformResponse, throwError} from "./transform.js"
+import fetch from 'node-fetch';
 
 const defaultPrompt = '你是一个翻译助手，精通中英文;接下来我会给你一些单词或者短语或者短句，请你翻译成英文。要翻译成程序变量中的变量名或者方法名，要求尽可能言简意;翻译内容使用小驼峰命名法;每次尽可能地提供多个翻译结果，使用逗号隔开'
 
@@ -27,6 +28,14 @@ function translateVariable(description) {
       "messages": messages
     })
   }).then(response => response.json()).then(data => {
+    if (data.error) {
+      throwError({
+        title: data.error.message,
+        subtitle: JSON.stringify(data.error),
+        valid: false,
+      })
+      throw new Error(data.error.message)
+    }
     return data.choices[0].message.content.split(', ')
   })
 }

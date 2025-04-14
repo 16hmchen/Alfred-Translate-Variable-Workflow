@@ -1,6 +1,5 @@
 import {transformResponse} from './transform.js';
 
-
 function main() {
   const input = process.argv[2];
   return transformResponse([
