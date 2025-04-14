@@ -1,0 +1,15 @@
+{
+  "name": "alfred-translate-variable",
+  "version": "0.0.1",
+  "description": "Alfred Workflow for translating Chinese to variable names",
+  "type": "module",
+  "author": "hmchen",
+  "license": "MIT",
+  "keywords": [
+    "alfred",
+    "workflow",
+    "translation",
+    "variable",
+    "openai"
+  ]
+}

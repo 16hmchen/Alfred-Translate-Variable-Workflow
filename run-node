@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# 获取当前脚本所在目录
+basedir=$(cd "$(dirname "$0")" && pwd)
+
+# ========== 兼容 nvm ==========
+# 根据 nvm 安装位置进行调整
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
+  . "$HOME/.nvm/nvm.sh"
+elif [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
+  . "/usr/local/opt/nvm/nvm.sh"
+fi
+
+# 如果 nvm 存在，使用默认 Node 版本
+if command -v nvm >/dev/null 2>&1; then
+  nvm use default >/dev/null 2>&1
+fi
+
+# 检查 node 是否存在
+if ! command -v node >/dev/null 2>&1; then
+  echo "Error: Node.js is not installed or not found in PATH."
+  exit 1
+fi
+
+# 设置 NODE_PATH 为当前项目下 node_modules
+export NODE_PATH="$basedir/node_modules"
+
+# 解析参数
+jsfile="$1"
+shift
+
+# 拼接完整路径，防止路径问题
+script="$basedir/$jsfile"
+
+# 检查 JS 文件是否存在
+if [ ! -f "$script" ]; then
+  echo "Error: JavaScript file '$script' not found."
+  exit 1
+fi
+
+# 执行 Node 脚本并传入参数
+exec node "$script" "$@"
