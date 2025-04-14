@@ -4,7 +4,7 @@ function main() {
   const input = process.argv[2];
   return transformResponse([
     {
-      title: '按回车开始翻译',
+      title: '按回车开始翻译：' + input,
       value: input,
       valid: true,
       arg: input,

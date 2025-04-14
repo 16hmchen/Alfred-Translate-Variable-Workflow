@@ -57,4 +57,4 @@
 
 1. No endpoints found matching your data policy. Enable prompt training here: https://openrouter.ai/settings/privacy
 
-- 打开 [https://openrouter.ai/settings/privacy](https://openrouter.ai/settings/privacy) ，并勾选「Model Training」
+   - 打开 [https://openrouter.ai/settings/privacy](https://openrouter.ai/settings/privacy) ，并勾选「Model Training」
